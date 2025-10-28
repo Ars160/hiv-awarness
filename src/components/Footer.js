@@ -45,7 +45,7 @@ const Footer = () => {
                 <FaWhatsapp size={30} />
               </a>
               <a
-                href="https://t.me/77759811803"
+                href="https://t.me/almaskyzy_y"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:text-red-300 transition transform hover:scale-110"

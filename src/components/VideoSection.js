@@ -169,7 +169,7 @@ const getEmbedUrl = (url) => {
             <button onClick={() => window.open("https://wa.me/77072446302", "_blank")} className="bg-red-600 hover:bg-red-700 text-white py-3 px-6 rounded-lg font-medium transition-colors duration-300">
               Поделиться в WhatsApp
             </button>
-            <button onClick={() => window.open("https://t.me/77759811803", "_blank")} className="bg-red-600 hover:bg-red-700 text-white py-3 px-6 rounded-lg font-medium transition-colors duration-300">
+            <button onClick={() => window.open("https://t.me/almaskyzy_y", "_blank")} className="bg-red-600 hover:bg-red-700 text-white py-3 px-6 rounded-lg font-medium transition-colors duration-300">
               Поделиться в Telegram
             </button>
           </div>
