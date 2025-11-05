@@ -14,6 +14,7 @@ import TestingSection from "./components/TestingSection";
 import NewsSection from "./components/NewsSection";
 import SupportSection from "./components/SupportSection";
 import Features from "./components/Features";
+import { SpeedInsights } from "@vercel/speed-insights/react"
 
 function App() {
   return (
@@ -61,6 +62,8 @@ function App() {
         <section id="данные">
           <Footer />
         </section>
+
+        <SpeedInsights />
       </main>
     </Router>
   );
