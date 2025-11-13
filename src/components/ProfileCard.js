@@ -2,6 +2,7 @@ import React from "react";
 import lll from "../assets/images/lll.jpeg"; // Путь к первому изображению
 import ll from "../assets/images/ll.jpeg"; // Путь к первому изображению
 import l from "../assets/images/l.jpeg"; // Путь ко второму изображению
+import llll from "../assets/images/llll.jpeg"; // Путь ко второму изображению
 
 const ProfileCard = ({ name, title, instagramLink, imageUrl, altText }) => {
   return (
@@ -14,7 +15,7 @@ const ProfileCard = ({ name, title, instagramLink, imageUrl, altText }) => {
       <div>
         <h3 className="text-2xl font-semibold text-red-800 mb-2">{name}</h3>
         <p className="text-lg text-red-600 mb-6">{title}</p>
-        {name !== "Гульнара Саябековна Нугуманова" && (
+        {(altText !== "teacher") && (
            <a
           href={instagramLink}
           target="_blank"
@@ -45,7 +46,13 @@ const Profiles = () => {
             name="Гульнара Саябековна Нугуманова"
             title="Инфекционист, асс.профессора кафедры эпидемиологии с курсом ВИЧ-инфекции и инфекционного контроля."
             imageUrl={lll}
-            altText="Орынбас Елдана Алмасқызы"
+            altText="teacher"
+          />
+          <ProfileCard
+            name="Бейсенбинова Жанат Бекмуханбетовна"
+            title="Ассистент профессора кафедры эпидемиологии с курсом ВИЧ инфекции и Инфекционного контроля"
+            imageUrl={llll}
+            altText="teacher"
           />
           <ProfileCard
             name="Орынбас Елдана Алмасқызы"
