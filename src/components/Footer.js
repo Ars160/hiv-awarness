@@ -1,4 +1,5 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 import {
   FaInstagram,
   FaWhatsapp,
@@ -7,6 +8,9 @@ import {
 } from "react-icons/fa";
 
 const Footer = () => {
+  const { t } = useTranslation();
+  const year = new Date().getFullYear();
+
   return (
     <footer className="bg-gradient-to-br from-red-800 to-red-900 text-white py-10">
       <div className="container mx-auto px-4">
@@ -20,7 +24,7 @@ const Footer = () => {
             <p className="text-sm mb-2">nurkhaim.amina@mail.ru</p>
             <p className="text-sm mb-2">+7 775 981 18 03</p>
             <p className="text-sm mb-2">+7 707 244 63 02</p>
-            <p className="text-sm mb-2">Город Алматы, Улица Басенова, 2 к4</p>
+            <p className="text-sm mb-2">{t("footer_address")}</p>
           </div>
 
           {/* Social Media and Links */}
@@ -68,7 +72,7 @@ const Footer = () => {
                 href="/privacy"
                 className="block text-sm hover:text-red-300 transition"
               >
-                Наши сети
+                {t("footer_our_networks")}
               </a>
             </div>
           </div>
@@ -77,8 +81,7 @@ const Footer = () => {
         {/* Bottom copyright */}
         <div className="border-t border-red-700 pt-4 mt-6">
           <p className="text-center text-sm">
-            © {new Date().getFullYear()} HIV Infection. Все права
-            защищены.
+            {t("footer_copyright", { year })}
           </p>
         </div>
       </div>

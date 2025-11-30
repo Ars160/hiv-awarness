@@ -2,8 +2,13 @@ import React from "react";
 import hivImg from "../assets/images/1.jpg";
 import aidsImg from "../assets/images/2.jpg";
 import protectionImg from "../assets/images/3.jpg";
+import { useTranslation } from "react-i18next";
+
 
 const Goals = () => {
+
+  const { t } = useTranslation();
+
   return (
     <section
       id="goals"
@@ -11,10 +16,10 @@ const Goals = () => {
     >
       <div className="container mx-auto px-6 text-center">
         <h2 className="text-5xl font-extrabold text-red-800 leading-tight max-md:text-4xl">
-          Всё, что нужно знать о ВИЧ
+          {t("courses_title")}
         </h2>
         <p className="mt-4 text-lg text-red-600 max-md:text-base">
-          На нашем сайте вы найдете простые и достоверные ответы на важные вопросы:
+          {t("courses_description")}
         </p>
 
         <div className="mt-14 grid grid-cols-1 md:grid-cols-3 gap-10">
@@ -26,11 +31,10 @@ const Goals = () => {
               className="w-full h-56 object-cover rounded-xl mb-4"
             />
             <h3 className="text-2xl font-semibold text-red-600 mb-2">
-              Что такое ВИЧ?
+              {t("courses_item1")}
             </h3>
             <p className="text-gray-600 text-lg">
-              ВИЧ — это вирус, который поражает иммунную систему человека, делая организм
-              уязвимым к инфекциям и болезням.
+              {t("courses_item1_description")}
             </p>
           </div>
 
@@ -42,11 +46,10 @@ const Goals = () => {
               className="w-full h-56 object-cover rounded-xl mb-4"
             />
             <h3 className="text-2xl font-semibold text-red-600 mb-2">
-              ВИЧ и СПИД — в чём разница?
+                {t("courses_item2")}
             </h3>
             <p className="text-gray-600 text-lg">
-              ВИЧ — это вирус, а СПИД — это стадия, когда иммунитет сильно ослаблен.
-              СПИД — не вирус, а состояние организма.
+              {t("courses_item2_description")}
             </p>
           </div>
 
@@ -58,24 +61,23 @@ const Goals = () => {
               className="w-full h-56 object-cover rounded-xl mb-4"
             />
             <h3 className="text-2xl font-semibold text-red-600 mb-2">
-              Как передаётся ВИЧ и как защититься?
+              {t("courses_item3")}
             </h3>
             <p className="text-gray-600 text-lg">
-              ВИЧ передаётся через кровь, незащищённые половые контакты и от матери к ребёнку.
-              Презервативы и тестирование — надёжная защита.
+              {t("courses_item3_description")}
             </p>
           </div>
         </div>
 
         <div className="mt-14">
           <p className="text-lg text-gray-600 mb-6">
-            На нашем сайте вы узнаете, как жить с ВИЧ и как предотвратить заражение.
+            {t("courses_sub_info")}
           </p>
           <a
             href="#вопросы"
             className="inline-block bg-red-600 text-white font-medium py-3 px-6 rounded-full hover:bg-red-700 transition duration-300 shadow-md"
           >
-            Узнать больше
+            {t("courses_button")}
           </a>
 
         </div>

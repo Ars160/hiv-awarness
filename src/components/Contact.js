@@ -1,6 +1,8 @@
 import React, { useState } from "react";
+import { useTranslation } from "react-i18next";
 
 const Contact = () => {
+  const { t } = useTranslation();
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
@@ -36,10 +38,10 @@ const Contact = () => {
         <div className="max-w-3xl mx-auto text-center">
           <div className="mb-10 md:mb-16">
             <h2 className="text-5xl font-extrabold text-red-800 leading-tight max-md:text-4xl">
-              Зарегистрируйтесь прямо сейчас
+              {t("contact_form_title")}
             </h2>
             <p className="mt-4 text-lg text-red-600 max-md:text-base">
-              Заполнив форму, наш менеджер свяжется с вами в ближайшее время
+              {t("contact_form_subtitle")}
             </p>
           </div>
 
@@ -51,7 +53,7 @@ const Contact = () => {
                     htmlFor="name"
                     className="block text-sm font-medium text-gray-700 mb-1"
                   >
-                    Ваше имя
+                    {t("contact_form_name")}
                   </label>
                   <input
                     type="text"
@@ -59,7 +61,7 @@ const Contact = () => {
                     value={formData.name}
                     onChange={handleChange}
                     className="w-full bg-gray-50 border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-red-500 transition"
-                    placeholder="Ваше имя"
+                    placeholder={t("contact_form_name")}
                     required
                   />
                 </div>
@@ -69,7 +71,7 @@ const Contact = () => {
                     htmlFor="phone"
                     className="block text-sm font-medium text-gray-700 mb-1"
                   >
-                    Телефон
+                    {t("contact_form_phone")}
                   </label>
                   <input
                     type="tel"
@@ -87,7 +89,7 @@ const Contact = () => {
                     htmlFor="age"
                     className="block text-sm font-medium text-gray-700 mb-1"
                   >
-                    Ваш возраст
+                    {t("contact_form_age")}
                   </label>
                   <input
                     type="number"
@@ -95,7 +97,7 @@ const Contact = () => {
                     value={formData.age}
                     onChange={handleChange}
                     className="w-full bg-gray-50 border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-red-500 transition"
-                    placeholder="Введите ваш возраст"
+                    placeholder={t("contact_form_age")}
                     required
                   />
                 </div>
@@ -106,7 +108,7 @@ const Contact = () => {
                   type="submit"
                   className="w-full md:w-auto bg-red-600 hover:bg-red-700 text-white font-medium py-3 px-8 rounded-lg transition duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-600"
                 >
-                  Зарегистрироваться
+                  {t("contact_form_submit")}
                 </button>
               </div>
             </form>

@@ -1,7 +1,10 @@
 import React from "react";
-import banner from "../assets/images/banner.png"; // Временное изображение
+import { useTranslation } from "react-i18next";
+import banner from "../assets/images/banner.png"; 
 
 const HeroSection = () => {
+  const { t } = useTranslation();
+
   return (
     <section className="relative pt-10 overflow-hidden text-gray-800">
       {/* Gradient Background */}
@@ -12,22 +15,21 @@ const HeroSection = () => {
         <div className="space-y-6 text-center md:text-left order-2 md:order-1">
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold leading-tight">
             <span className="bg-clip-text text-transparent bg-gradient-to-r from-red-600 to-red-800">
-              Информация о ВИЧ
+              {t('hero_title')}
             </span>
           </h1>
           <p className="text-lg sm:text-xl md:text-2xl text-red-700 font-semibold">
-            Твоя безопасность — в твоих руках.
+            {t('hero_subtitle')}
           </p>
           <p className="text-sm sm:text-base md:text-lg text-gray-700 max-w-xl leading-relaxed mx-auto md:mx-0">
-            ВИЧ-инфекция остаётся одной из актуальных проблем современного общества. Каждый человек должен знать о путях передачи вируса и мерах профилактики, ведь информированность — это основа защиты. Регулярное тестирование помогает выявить заболевание на ранней стадии и начать лечение вовремя. Забота о своём здоровье — это забота о будущем.
-
+            {t('hero_description')}
           </p>
           <div className="flex justify-center md:justify-start mt-4">
             <a
               href="#контакты"
               className="inline-block bg-red-600 hover:bg-red-700 transition text-white font-semibold rounded-md py-3 px-8 text-base md:text-lg shadow-md hover:shadow-lg"
             >
-              Узнать больше
+              {t('hero_button')}
             </a>
           </div>
         </div>

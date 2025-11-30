@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 import { FaPlay } from "react-icons/fa";
-
-
 
 // (Опционально) постеры/миниатюры для карточек (положи в src/assets/images/)
 import posterIntro from "../assets/images/modern.jpg";
@@ -10,36 +9,34 @@ import posterDoctor from "../assets/images/2.jpg";
 import posterTreatment from "../assets/images/withHiv.jpg";
 
 const VideoSection = () => {
+  const { t } = useTranslation();
+
   const videos = [
     {
       id: 1,
-      title: "ВИЧ не приговор. Почему мы всё ещё боимся?",
-      description:
-        "Врач отвечает на частые вопросы: диагностика, лечение и современные подходы.",
+      title: t("video_1_title"),
+      description: t("video_1_description"),
       thumbnail: posterDoctor,
       src: "https://www.youtube.com/embed/sUYyrSVUj9Y",
     },
     {
       id: 2,
-      title: "История 15-летнего пациента",
-      description:
-        "История 15-летнего пациента, живущего с ВИЧ. Врач-педиатр рассказывает о лечении, поддержке и вере в будущее.",
+      title: t("video_2_title"),
+      description: t("video_2_description"),
       thumbnail: posterStory,
       src: "https://youtu.be/cWoRnBevpAI",
     },
     {
       id: 3,
-      title: "Современные методы лечение ВИЧ",
-      description:
-        "Узнай о современных методах лечения ВИЧ. Современная терапия помогает жить полной и здоровой жизнью.",
+      title: t("video_3_title"),
+      description: t("video_3_description"),
       thumbnail: posterIntro,
       src: "https://youtube.com/shorts/S0bThzdgJmk?feature=share",
     },
     {
       id: 4,
-      title: "С ВИЧ с 16 лет. Сегодня она — жена и мама",
-      description:
-        "История девушки, которая узнала о ВИЧ в 16 лет. Сегодня ей 22 — она живёт полноценно, замужем и воспитывает здорового ребёнка.",
+      title: t("video_4_title"),
+      description: t("video_4_description"),
       thumbnail: posterTreatment,
       src: "https://youtube.com/shorts/JYV_5j1BVMo?feature=share",
     },
@@ -79,39 +76,39 @@ const VideoSection = () => {
   };
 
   // Универсальный парсер ссылок YouTube
-const getEmbedUrl = (url) => {
-  try {
-    if (!url) return "";
+  const getEmbedUrl = (url) => {
+    try {
+      if (!url) return "";
 
-    // Если это короткая ссылка вида https://youtu.be/abc123
-    if (url.includes("youtu.be/")) {
-      const id = url.split("youtu.be/")[1].split("?")[0];
-      return `https://www.youtube.com/embed/${id}`;
-    }
+      // Если это короткая ссылка вида https://youtu.be/abc123
+      if (url.includes("youtu.be/")) {
+        const id = url.split("youtu.be/")[1].split("?")[0];
+        return `https://www.youtube.com/embed/${id}`;
+      }
 
-    // Если это shorts
-    if (url.includes("shorts/")) {
-      const id = url.split("shorts/")[1].split("?")[0];
-      return `https://www.youtube.com/embed/${id}`;
-    }
+      // Если это shorts
+      if (url.includes("shorts/")) {
+        const id = url.split("shorts/")[1].split("?")[0];
+        return `https://www.youtube.com/embed/${id}`;
+      }
 
-    // Если это обычная ссылка вида watch?v=...
-    if (url.includes("watch?v=")) {
-      const id = url.split("watch?v=")[1].split("&")[0];
-      return `https://www.youtube.com/embed/${id}`;
-    }
+      // Если это обычная ссылка вида watch?v=...
+      if (url.includes("watch?v=")) {
+        const id = url.split("watch?v=")[1].split("&")[0];
+        return `https://www.youtube.com/embed/${id}`;
+      }
 
-    // Если уже embed — вернуть как есть
-    if (url.includes("embed/")) {
+      // Если уже embed — вернуть как есть
+      if (url.includes("embed/")) {
+        return url;
+      }
+
+      // fallback
       return url;
+    } catch {
+      return "";
     }
-
-    // fallback
-    return url;
-  } catch {
-    return "";
-  }
-};
+  };
 
 
   return (
@@ -119,10 +116,10 @@ const getEmbedUrl = (url) => {
       <div className="container mx-auto px-6">
         <div className="text-center mb-12">
           <h2 className="text-4xl font-extrabold text-red-800 mb-3">
-            О жизни. О поддержке. О ВИЧ.
+            {t('video_section_title')}
           </h2>
           <p className="text-lg text-red-600 max-w-3xl mx-auto">
-            Образовательные ролики, реальные истории и интервью со специалистами.
+            {t('video_section_subtitle')}
           </p>
         </div>
 
@@ -141,7 +138,7 @@ const getEmbedUrl = (url) => {
                 />
                 <button
                   onClick={() => openVideo(video)}
-                  aria-label={`Открыть видео: ${video.title}`}
+                  aria-label={t('video_modal_open_aria', { title: video.title })}
                   className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-30 hover:bg-opacity-50 transition-all duration-300"
                 >
                   <div className="w-16 h-16 rounded-full bg-red-600 flex items-center justify-center">
@@ -162,15 +159,15 @@ const getEmbedUrl = (url) => {
 
         <div className="text-center mt-10">
           <p className="text-xl font-semibold text-red-700 mb-4">
-            Слушай. Понимай. Делись.
+            {t('video_section_footer_title')}
           </p>
 
           <div className="flex justify-center gap-4">
             <button onClick={() => window.open("https://wa.me/77072446302", "_blank")} className="bg-red-600 hover:bg-red-700 text-white py-3 px-6 rounded-lg font-medium transition-colors duration-300">
-              Поделиться в WhatsApp
+              {t('video_section_whatsapp_button')}
             </button>
             <button onClick={() => window.open("https://t.me/almaskyzy_y", "_blank")} className="bg-red-600 hover:bg-red-700 text-white py-3 px-6 rounded-lg font-medium transition-colors duration-300">
-              Поделиться в Telegram
+              {t('video_section_telegram_button')}
             </button>
           </div>
         </div>
@@ -210,7 +207,7 @@ const getEmbedUrl = (url) => {
                 onClick={closeVideo}
                 className="bg-red-600 hover:bg-red-700 text-white py-2 px-4 rounded"
               >
-                Закрыть
+                {t('video_modal_close_button')}
               </button>
             </div>
           </div>

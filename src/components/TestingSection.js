@@ -1,21 +1,24 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 import { FaMapMarkerAlt, FaPhone, FaGlobe } from "react-icons/fa";
 import { YMaps, Map, Placemark } from "@pbe/react-yandex-maps";
 
 const TestingSection = () => {
+  const { t } = useTranslation();
+
   const testingCenters = [
     {
       id: 1,
-      name: "Центр профилактики и борьбы со СПИД",
-      address: "ул. Басенова 2, корпус 4, Алматы 050060, Казахстан",
+      name: t("testing_center_1_name"),
+      address: t("testing_center_1_address"),
       phone: "+7 (727) 246-53-36",
       website: "gcaids.kz",
       coordinates: [43.221214, 76.900675],
     },
     {
       id: 2,
-      name: "КНЦ дерматологии и инфекционных заболеваний им. Махмалбаева",
-      address: "пр. Райымбека, 60, Алматы",
+      name: t("testing_center_2_name"),
+      address: t("testing_center_2_address"),
       phone: "+7 (727) 397-42-23",
       website: "kncdiz.kz",
       coordinates: [43.270807, 76.956577],
@@ -30,10 +33,10 @@ const TestingSection = () => {
         {/* === Заголовок === */}
         <div className="text-center mb-16">
           <h2 className="text-5xl font-extrabold text-red-800 leading-tight mb-4 max-md:text-4xl">
-            Всего один тест — и ты спокоен
+            {t("testing_section_title")}
           </h2>
           <p className="text-xl text-red-600 max-w-3xl mx-auto">
-            Узнай свой ВИЧ-статус бесплатно и анонимно в Алматы
+            {t("testing_section_subtitle")}
           </p>
         </div>
 
@@ -54,8 +57,8 @@ const TestingSection = () => {
                       balloonContentHeader: `<strong>${center.name}</strong>`,
                       balloonContentBody: `
                         <p>${center.address}</p>
-                        <p>Телефон: ${center.phone}</p>
-                        <p>Сайт: ${center.website}</p>
+                        <p>${t("testing_section_map_phone")}: ${center.phone}</p>
+                        <p>${t("testing_section_map_website")}: ${center.website}</p>
                       `,
                     }}
                     options={{
@@ -100,7 +103,7 @@ const TestingSection = () => {
                   onClick={() => (window.location.href = `tel:${center.phone}`)}
                   className="mt-4 bg-red-600 hover:bg-red-700 text-white py-2 px-4 rounded-lg flex items-center transition-colors duration-300"
                 >
-                  <span className="mr-2">Позвонить</span>
+                  <span className="mr-2">{t("testing_section_call_button")}</span>
                   <FaPhone />
                 </button>
               </div>

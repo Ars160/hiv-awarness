@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { FaCalendarAlt, FaUser, FaArrowRight } from "react-icons/fa";
 import news1 from "../assets/images/news1.jpg"
 import news2 from "../assets/images/news2.jpg"
@@ -9,103 +10,97 @@ import history2 from "../assets/images/history3.jpg"
 import history3 from "../assets/images/history1.jpg"
 
 const NewsSection = () => {
+  const { t } = useTranslation();
+
   const articles = [
     // 🧠 Научные новости
     {
       id: 1,
-      title: "В Китае впервые обнаружен редкий штамм ВИЧ-2",
-      excerpt:
-        "Редкий штамм ВИЧ-2 найден в провинции Сычуань. Он развивается медленнее и имеет меньший риск передачи.",
+      title: t("news_1_title"),
+      excerpt: t("news_1_excerpt"),
       date: "10 мая 2024",
       author: "RBC.ru",
-      category: "Наука",
+      category: t("news_category_science"),
       image:
         `${news1}`,
-      link: "https://rbc.ru",
+      link: "https://www.rbc.ru/rbcfreenews/68f767fa9a79474f2b4f1ea8?ysclid=mia5niahsh588016454",
     },
     {
       id: 2,
-      title:
-        "ВОЗ рекомендовала ленакапавир для профилактики ВИЧ дважды в год",
-      excerpt:
-        "Препарат снижает риск заражения почти на 100% и может изменить подход к профилактике.",
+      title: t("news_2_title"),
+      excerpt: t("news_2_excerpt"),
       date: "8 мая 2024",
       author: "WHO.int",
-      category: "Наука",
+      category: t("news_category_science"),
       image:
         `${news2}`,
-      link: "https://who.int",
+      link: "https://www.who.int/ru/news/item/14-07-2025-who-recommends-injectable-lenacapavir-for-hiv-prevention",
     },
     {
       id: 3,
-      title: "CRISPR-терапия: шаг к излечению ВИЧ",
-      excerpt:
-        "Учёные смогли удалить вирус из ДНК заражённых клеток. Метод проходит клинические испытания.",
+      title: t("news_3_title"),
+      excerpt: t("news_3_excerpt"),
       date: "2 мая 2024",
       author: "SecurityLab.ru",
-      category: "Наука",
+      category: t("news_category_science"),
       image:
         `${news3}`,
-      link: "https://securitylab.ru",
+      link: "https://spid.ru/news/opublikovany-dannye-pervogo-ispytaniya-gennoy-terapii-crispr-dlya-lecheniya-vich-u-lyudey?ysclid=mia5rpqff437799798",
     },
     {
       id: 4,
-      title: "10 случаев излечения ВИЧ после пересадки стволовых клеток",
-      excerpt:
-        "Пересадка доноров с мутацией CCR5-Δ32 блокирует проникновение вируса. Надежда на излечение растёт.",
+      title: t("news_4_title"),
+      excerpt: t("news_4_excerpt"),
       date: "25 апреля 2024",
       author: "Aidsmap",
-      category: "Наука",
+      category: t("news_category_science"),
       image:
         `${news4}`,
-      link: "https://aidsmap.com",
+      link: "https://translated.turbopages.org/proxy_u/en-ru.ru.acc8bc31-69219374-a611ec4d-74722d776562/https/aidsrestherapy.biomedcentral.com/articles/10.1186/s12981-016-0114-y",
     },
 
     // 💪 Истории успеха
     {
       id: 5,
-      title: "Тимоти Рэй Браун — первый человек, победивший ВИЧ",
-      excerpt:
-        "После пересадки костного мозга от донора с мутацией CCR5Δ32, Тимоти полностью избавился от вируса.",
+      title: t("news_5_title"),
+      excerpt: t("news_5_excerpt"),
       date: "15 апреля 2024",
       author: "Wikipedia",
-      category: "Истории успеха",
+      category: t("news_category_success_stories"),
       image:
         `${history1}`,
       link: "https://ru.wikipedia.org/wiki/Timothy_Ray_Brown",
     },
     {
       id: 6,
-      title: "Пол Эдмондс — третий пациент без ВИЧ и рака",
-      excerpt:
-        "После пересадки стволовых клеток Пол живёт без признаков вируса и без терапии.",
+      title: t("news_6_title"),
+      excerpt: t("news_6_excerpt"),
       date: "12 апреля 2024",
       author: "City of Hope",
-      category: "Истории успеха",
+      category: t("news_category_success_stories"),
       image:
         `${history2}`,
       link: "https://spid.center/ru/posts/9381",
     },
     {
       id: 7,
-      title: "Реальные истории людей, живущих с ВИЧ",
-      excerpt:
-        "Тысячи людей по всему миру ведут активную жизнь, создают семьи и борются со стигмой. Лечение позволяет полностью контролировать вирус.",
+      title: t("news_7_title"),
+      excerpt: t("news_7_excerpt"),
       date: "5 апреля 2024",
       author: "ViiV Healthcare",
-      category: "Истории успеха",
+      category: t("news_category_success_stories"),
       image:
         `${history3}`,
       link: "https://viivhealthcare.com",
     },
   ];
 
-  const categories = ["Все", "Наука", "Истории успеха"];
+  const categories = [t("news_category_all"), t("news_category_science"), t("news_category_success_stories")];
 
-  const [activeCategory, setActiveCategory] = useState("Все");
+  const [activeCategory, setActiveCategory] = useState(t("news_category_all"));
 
   const filteredArticles =
-    activeCategory === "Все"
+    activeCategory === t("news_category_all")
       ? articles
       : articles.filter((a) => a.category === activeCategory);
 
@@ -114,10 +109,10 @@ const NewsSection = () => {
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-5xl font-extrabold text-red-800 leading-tight mb-4 max-md:text-4xl">
-            Последние новости и истории успеха
+            {t("news_section_title")}
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Научные достижения, реальные истории и вдохновляющие примеры
+            {t("news_section_subtitle")}
           </p>
         </div>
 
@@ -176,7 +171,7 @@ const NewsSection = () => {
                     rel="noopener noreferrer"
                     className="text-red-600 hover:text-red-700 font-medium flex items-center transition-colors duration-300"
                   >
-                    <span className="mr-1">Подробнее</span>
+                    <span className="mr-1">{t("news_read_more")}</span>
                     <FaArrowRight className="text-sm" />
                   </a>
                 </div>

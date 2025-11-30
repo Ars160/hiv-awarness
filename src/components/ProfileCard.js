@@ -1,10 +1,12 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 import lll from "../assets/images/lll.jpeg"; // Путь к первому изображению
 import ll from "../assets/images/ll.jpeg"; // Путь к первому изображению
 import l from "../assets/images/l.jpeg"; // Путь ко второму изображению
 import llll from "../assets/images/llll.jpeg"; // Путь ко второму изображению
 
 const ProfileCard = ({ name, title, instagramLink, imageUrl, altText }) => {
+  const { t } = useTranslation();
   return (
     <div className="text-center max-w-xs p-6 bg-white rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300 transform hover:scale-105">
       <img
@@ -22,7 +24,7 @@ const ProfileCard = ({ name, title, instagramLink, imageUrl, altText }) => {
           rel="noopener noreferrer"
           className="text-red-600 hover:underline text-lg"
         >
-          Instagram
+          {t("instagram_button")}
         </a>
         )}
        
@@ -32,41 +34,42 @@ const ProfileCard = ({ name, title, instagramLink, imageUrl, altText }) => {
 };
 
 const Profiles = () => {
+  const { t } = useTranslation();
   return (
     <section className="py-20 bg-gradient-to-b from-red-50 to-white">
       <div className="container mx-auto px-6 text-center">
         <h2 className="text-5xl font-extrabold text-red-800 leading-tight max-md:text-4xl">
-          Наша команда
+          {t("team_section_title")}
         </h2>
         <p className="mt-4 text-lg text-red-600 max-md:text-base">
-          Студенты которые работают над этим проектом
+          {t("team_section_subtitle")}
         </p>
         <div className="flex flex-col md:flex-row justify-center items-center md:space-x-12 mt-16 md:space-y-0 space-y-12">
           <ProfileCard
-            name="Гульнара Саябековна Нугуманова"
-            title="Инфекционист, асс.профессора кафедры эпидемиологии с курсом ВИЧ-инфекции и инфекционного контроля."
+            name={t("team_member_1_name")}
+            title={t("team_member_1_title")}
             imageUrl={lll}
             altText="teacher"
           />
           <ProfileCard
-            name="Бейсенбинова Жанат Бекмуханбетовна"
-            title="Ассистент профессора кафедры эпидемиологии с курсом ВИЧ инфекции и Инфекционного контроля"
+            name={t("team_member_2_name")}
+            title={t("team_member_2_title")}
             imageUrl={llll}
             altText="teacher"
           />
           <ProfileCard
-            name="Орынбас Елдана Алмасқызы"
-            title="Лучший студент СНГ 2025, ассистент врача"
+            name={t("team_member_3_name")}
+            title={t("team_member_3_title")}
             instagramLink=" https://www.instagram.com/almaskyzy_y_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
             imageUrl={l}
-            altText="Орынбас Елдана Алмасқызы"
+            altText={t("team_member_3_name")}
           />
           <ProfileCard
-            name="Нұрхаим Амина Сәрсенбекқызы"
-            title="Лучший студент СНГ 2024, ассистент врача"
+            name={t("team_member_4_name")}
+            title={t("team_member_4_title")}
             instagramLink=" https://www.instagram.com/n_amina_s?igsh=MWE0Y2lwNGd5cjdjMQ=="
             imageUrl={ll}
-            altText="Нұрхаим Амина Сәрсенбекқызы"
+            altText={t("team_member_4_name")}
           />
         </div>
       </div>
