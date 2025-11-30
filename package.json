@@ -1,5 +1,5 @@
 {
-  "name": "yerkin_oner",
+  "name": "hiv-awarness",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -11,12 +11,12 @@
     "@testing-library/user-event": "^13.5.0",
     "@vercel/speed-insights": "^1.2.0",
     "clsx": "^2.1.1",
-    "i18next": "^25.6.3",
+    "i18next": "^22.5.1",
     "i18next-browser-languagedetector": "^8.2.0",
     "i18next-http-backend": "^3.0.2",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "react-i18next": "^16.3.5",
+    "react-i18next": "^12.3.1",
     "react-icons": "^5.5.0",
     "react-router-dom": "^7.4.0",
     "react-scripts": "5.0.1",
@@ -49,6 +49,7 @@
   "devDependencies": {
     "autoprefixer": "^10.4.20",
     "postcss": "^8.5.3",
-    "tailwindcss": "^3.4.17"
+    "tailwindcss": "^3.4.17",
+    "typescript": "4.9.5"
   }
 }
